@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 10%;
+
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 95%;
+    --secondary-foreground: 215 25% 10%;
+
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 215 20% 95%;
+    --accent-foreground: 215 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 91%;
+    --input: 215 20% 91%;
+    --ring: 239 84% 67%;
+
+    --radius: 0.75rem;
+
+    /* Severity scale */
+    --severity-0: 160 84% 39%;
+    --severity-1: 45 93% 47%;
+    --severity-2: 27 96% 61%;
+    --severity-3: 0 72% 51%;
+
+    /* Surface */
+    --surface: 0 0% 100%;
+    --surface-hover: 215 20% 97%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 96%;
+    --sidebar-accent-foreground: 215 25% 10%;
+    --sidebar-border: 215 20% 91%;
+    --sidebar-ring: 239 84% 67%;
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-elevated: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-primary: 0 4px 14px rgba(99, 102, 241, 0.25);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 96%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 239 84% 67%;
+
+    --severity-0: 160 84% 39%;
+    --severity-1: 45 93% 47%;
+    --severity-2: 27 96% 61%;
+    --severity-3: 0 72% 51%;
+
+    --surface: 222 47% 9%;
+    --surface-hover: 222 47% 12%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 80%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 15%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 239 84% 67%;
+
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-elevated: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    --shadow-primary: 0 4px 14px rgba(99, 102, 241, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .severity-low {
+    background-color: hsl(var(--severity-0));
+    color: white;
+  }
+  .severity-medium {
+    background-color: hsl(var(--severity-1));
+    color: white;
+  }
+  .severity-high {
+    background-color: hsl(var(--severity-2));
+    color: white;
+  }
+  .severity-fatal {
+    background-color: hsl(var(--severity-3));
+    color: white;
+  }
+
+  .severity-low-bg { background-color: hsl(var(--severity-0) / 0.1); }
+  .severity-medium-bg { background-color: hsl(var(--severity-1) / 0.1); }
+  .severity-high-bg { background-color: hsl(var(--severity-2) / 0.1); }
+  .severity-fatal-bg { background-color: hsl(var(--severity-3) / 0.1); }
+
+  .severity-low-text { color: hsl(var(--severity-0)); }
+  .severity-medium-text { color: hsl(var(--severity-1)); }
+  .severity-high-text { color: hsl(var(--severity-2)); }
+  .severity-fatal-text { color: hsl(var(--severity-3)); }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+    box-shadow: var(--shadow-primary);
+  }
+  .btn-primary:hover {
+    @apply opacity-90 scale-[1.02];
+  }
+}
+/* 🔥 FIX: Prevent dark mode affecting Leaflet */
+.leaflet-container,
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-layer,
+.leaflet-container img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
